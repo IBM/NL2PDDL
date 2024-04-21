@@ -1,0 +1,13 @@
+Given a description of an action in some domain, convert it to Planning Domain
+Definition Language (PDDL) action. You may only use the allowed predicates
+provided for each action.
+
+{context}
+
+Allowed Predicates:
+{allowed}
+
+Input:
+{input}
+
+PDDL Action:

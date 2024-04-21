@@ -1,0 +1,161 @@
+domain,action,pddl,preds,NL
+BLOCKS,put-down,"(:action put-down
+    :parameters (?x - block)
+    :precondition (holding ?x)
+    :effect (and (not (holding ?x)) (clear ?x) (handempty) (ontable ?x))
+)",,"The action, ""put-down"" will have the hand put down a block"
+BLOCKS,pick-up,"(:action pick-up
+    :parameters (?x - block)
+    :precondition (and (clear ?x) (ontable ?x) (handempty))
+    :effect (and (not (ontable ?x)) (not (clear ?x)) (not (handempty)) (holding ?x))
+)",,"The action, ""pick-up"" will have the hand pick up a block"
+BLOCKS,unstack,"(:action unstack
+    :parameters (?x - block ?y - block)
+    :precondition (and (on ?x ?y) (clear ?x) (handempty))
+    :effect (and (holding ?x) (clear ?y) (not (clear ?x)) (not (handempty)) (not (on ?x ?y)))
+)",,"The action, ""unstack"" will unstack a block x from a block y"
+BLOCKS,stack,"(:action stack
+    :parameters (?x - block ?y - block)
+    :precondition (and (holding ?x) (clear ?y))
+    :effect (and (not (holding ?x)) (not (clear ?y)) (clear ?x) (handempty) (on ?x ?y))
+)",,"The action, ""stack"" will stack a block x onto block y"
+Depot,Drive,"(:action Drive
+    :parameters (?x - truck ?y - place ?z - place)
+    :precondition (at ?x ?y)
+    :effect (and (not (at ?x ?y)) (at ?x ?z))
+)",,"The action, ""Drive"" will drive a truck at a place y to a place z"
+Depot,Load,"(:action Load
+    :parameters (?x - hoist ?y - crate ?z - truck ?p - place)
+    :precondition (and (at ?x ?p) (at ?z ?p) (lifting ?x ?y))
+    :effect (and (not (lifting ?x ?y)) (in ?y ?z) (available ?x))
+)",,"The action, ""Load"" will use a hoist to load a crate into a truck at a place"
+Depot,Drop,"(:action Drop
+    :parameters (?x - hoist ?y - crate ?z - surface ?p - place)
+    :precondition (and (at ?x ?p) (at ?z ?p) (clear ?z) (lifting ?x ?y))
+    :effect (and (available ?x) (not (lifting ?x ?y)) (at ?y ?p) (not (clear ?z)) (clear ?y) (on ?y ?z))
+)",,"The action, ""Drop"" will have a hoist drop a crate onto a surface at a place"
+Depot,Lift,"(:action Lift
+    :parameters (?x - hoist ?y - crate ?z - surface ?p - place)
+    :precondition (and (at ?x ?p) (available ?x) (at ?y ?p) (on ?y ?z) (clear ?y))
+    :effect (and (not (at ?y ?p)) (lifting ?x ?y) (not (clear ?y)) (not (available ?x)) (clear ?z) (not (on ?y ?z)))
+)",,"The action, ""Lift"" will have a hoist lift a crate from a surface at a place"
+Depot,Unload,"(:action Unload
+    :parameters (?x - hoist ?y - crate ?z - truck ?p - place)
+    :precondition (and (at ?x ?p) (at ?z ?p) (available ?x) (in ?y ?z))
+    :effect (and (not (in ?y ?z)) (not (available ?x)) (lifting ?x ?y))
+)",,"The action, ""Unload"" will use a hoist to unload a crate from a truck at a place"
+gripper-typed,drop,"(:action drop
+    :parameters (?obj - ball ?room - room ?gripper - gripper)
+    :precondition (and (carry ?obj ?gripper) (at-robby ?room))
+    :effect (and (at ?obj ?room) (free ?gripper) (not (carry ?obj ?gripper)))
+)",,"The action, ""drop"" will drop a ball in a room using a gripper"
+gripper-typed,move,"(:action move
+    :parameters (?from - room ?to - room)
+    :precondition (at-robby ?from)
+    :effect (and (at-robby ?to) (not (at-robby ?from)))
+)",,"The action, ""move"" will move the robot roby from a room to a new room"
+gripper-typed,pick,"(:action pick
+    :parameters (?obj - ball ?room - room ?gripper - gripper)
+    :precondition (and (at ?obj ?room) (at-robby ?room) (free ?gripper))
+    :effect (and (carry ?obj ?gripper) (not (at ?obj ?room)) (not (free ?gripper)))
+)",,"The action, ""pick"" will have the robot pick up a ball in a room using a gripper"
+heavy-pack,pack-first,"(:action pack-first
+    :parameters (?item - item)
+    :precondition (box-empty)
+    :effect (and (not (box-empty)) (packed ?item) (nothing-above ?item) (not (unpacked ?item)))
+)",,"The action, ""pack-first"" will pack an item into the box"
+heavy-pack,stack,"(:action stack
+    :parameters (?bottom - item ?top - item)
+    :precondition (and (packed ?bottom) (nothing-above ?bottom) (heavier ?bottom ?top) (unpacked ?top))
+    :effect (and (packed ?top) (nothing-above ?top) (not (nothing-above ?bottom)) (not (unpacked ?top)))
+)",,"The action, ""stack"" will stack an item ontop of another item in the box"
+logistics,DRIVE-TRUCK,"(:action DRIVE-TRUCK
+    :parameters (?truck - truck ?loc-from - place ?loc-to - place ?city - city)
+    :precondition (and (at ?truck ?loc-from) (in-city ?loc-from ?city) (in-city ?loc-to ?city))
+    :effect (and (not (at ?truck ?loc-from)) (at ?truck ?loc-to))
+)",,"The action, ""DRIVE-TRUCK"" will drive a truck from a location to another in a given city"
+logistics,LOAD-TRUCK,"(:action LOAD-TRUCK
+    :parameters (?pkg - package ?truck - truck ?loc - place)
+    :precondition (and (at ?truck ?loc) (at ?pkg ?loc))
+    :effect (and (not (at ?pkg ?loc)) (in ?pkg ?truck))
+)",,"The action, ""LOAD-TRUCK"" will place a package in a truck at a given place"
+logistics,UNLOAD-TRUCK,"(:action UNLOAD-TRUCK
+    :parameters (?pkg - package ?truck - truck ?loc - place)
+    :precondition (and (at ?truck ?loc) (in ?pkg ?truck))
+    :effect (and (not (in ?pkg ?truck)) (at ?pkg ?loc))
+)",,"The action, ""UNLOAD-TRUCK"" will unload a package from a truck at a given place"
+logistics,FLY-AIRPLANE,"(:action FLY-AIRPLANE
+    :parameters (?airplane - airplane ?loc-from - airport ?loc-to - airport)
+    :precondition (at ?airplane ?loc-from)
+    :effect (and (not (at ?airplane ?loc-from)) (at ?airplane ?loc-to))
+)",,"The action, ""FLY-AIRPLANE"" will fly an airplane from one airport to another"
+logistics,UNLOAD-AIRPLANE,"(:action UNLOAD-AIRPLANE
+    :parameters (?pkg - package ?airplane - airplane ?loc - place)
+    :precondition (and (in ?pkg ?airplane) (at ?airplane ?loc))
+    :effect (and (not (in ?pkg ?airplane)) (at ?pkg ?loc))
+)",,"The action, ""UNLOAD-AIRPLANE"" will unload a package from an airplane at a given place"
+logistics,LOAD-AIRPLANE,"(:action LOAD-AIRPLANE
+    :parameters (?pkg - package ?airplane - airplane ?loc - place)
+    :precondition (and (at ?pkg ?loc) (at ?airplane ?loc))
+    :effect (and (not (at ?pkg ?loc)) (in ?pkg ?airplane))
+)",,"The action, ""LOAD-AIRPLANE"" will load an airplane with a package at a given place"
+hiking,climb,"(:action climb
+    :parameters (?from - location ?to - location)
+    :precondition (and (isHill ?to) (at ?from) (adjacent ?from ?to) (not (isWater ?from)))
+    :effect (and (at ?to) (not (at ?from)))
+)",,"The action, ""climb"" will have the hikers at a location climb to another location."
+hiking,walk,"(:action walk
+    :parameters (?from - location ?to - location)
+    :precondition (and (not (isHill ?to)) (at ?from) (adjacent ?from ?to) (not (isWater ?from)))
+    :effect (and (at ?to) (not (at ?from)))
+)",,"The action, ""walk"" will have the hikers at a location walk to another location."
+miconic,down,"(:action down
+    :parameters (?f1 - floor ?f2 - floor)
+    :precondition (and (lift-at ?f1) (above ?f2 ?f1))
+    :effect (and (lift-at ?f2) (not (lift-at ?f1)))
+)",,"The action, ""down"" will move the lift down from a floor f1 to a floor f2"
+miconic,depart,"(:action depart
+    :parameters (?f - floor ?p - passenger)
+    :precondition (and (lift-at ?f) (destin ?p ?f) (boarded ?p))
+    :effect (and (not (boarded ?p)) (served ?p))
+)",,"The action, ""depart"" will have a passenger depart the lift at a floor"
+miconic,board,"(:action board
+    :parameters (?f - floor ?p - passenger)
+    :precondition (and (lift-at ?f) (origin ?p ?f))
+    :effect (and (boarded ?p))
+)",,"The action, ""board"" will have a passenger at a floor board the lift"
+miconic,up,"(:action up
+    :parameters (?f1 - floor ?f2 - floor)
+    :precondition (and (lift-at ?f1) (above ?f1 ?f2))
+    :effect (and (lift-at ?f2) (not (lift-at ?f1)))
+)",,"The action, ""up"" will move the lift up from a floor f1 to a floor f2"
+track-building,move-train,"(:action move-train
+    :parameters (?current-loc - location ?next-loc - location)
+    :precondition (and (train-at ?current-loc) (has-track ?next-loc) (forward ?current-loc ?next-loc))
+    :effect (and (train-at ?next-loc) (not (train-at ?current-loc)))
+)",,"The action, ""move-train"" will move the train from a location current-loc to a location next-loc"
+track-building,build-track,"(:action build-track
+    :parameters (?loc - location)
+    :precondition (agent-at ?loc)
+    :effect (and (has-track ?loc))
+)",,"The action, ""build-track"" will build track at a location"
+track-building,move-agent,"(:action move-agent
+    :parameters (?current-loc - location ?next-loc - location)
+    :precondition (agent-at ?current-loc)
+    :effect (and (agent-at ?next-loc) (not (agent-at ?current-loc)))
+)",,"The action, ""move-agent"" will move an agent from a location current-loc to a location next-loc"
+trapnewspapers,pick-up,"(:action pick-up
+    :parameters (?paper - paper ?loc - location)
+    :precondition (and (at ?loc) (isHomeBase ?loc) (unpacked ?paper))
+    :effect (and (not (unpacked ?paper)) (carrying ?paper))
+)",,"The action, ""pick-up"" will have the deliverer pick up a paper at a location"
+trapnewspapers,move,"(:action move
+    :parameters (?from - location ?to - location)
+    :precondition (and (at ?from) (safe ?from))
+    :effect (and (not (at ?from)) (at ?to))
+)",,"The action, ""move"" will move the deliverer from a location ""from"" to a location ""to"""
+trapnewspapers,deliver,"(:action deliver
+    :parameters (?paper - paper ?loc - location)
+    :precondition (and (at ?loc) (carrying ?paper))
+    :effect (and (not (carrying ?paper)) (not (wantsPaper ?loc)) (satisfied ?loc))
+)",,"The action, ""deliver"" will have the deliverer drop off a paper in a location"

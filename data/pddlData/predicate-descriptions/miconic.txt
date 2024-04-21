@@ -1,0 +1,6 @@
+(origin ?p - passenger ?f - floor) : passenger p starts on floor f.
+(destin ?p - passenger ?f - floor) : passenger p has floor f as their destination. 
+(above ?f1 - floor  ?f2 - floor) : floor f1 is above floor f2.
+(boarded ?p - passenger) : passenger p has boarded the lift.
+(served ?p - passenger) : passenger p has been served by the lift.
+(lift-at ?f - floor) : the lift is at floor f.

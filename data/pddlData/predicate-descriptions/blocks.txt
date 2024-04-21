@@ -1,0 +1,5 @@
+(handempty) : the hand is empty.
+(holding ?x - block): block x is held.
+(clear ?x - block): block x is clear.
+(on ?x - block ?y - block) : block x is on block y.
+(ontable ?x - block): block x is on the table.

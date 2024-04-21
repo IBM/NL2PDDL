@@ -1,0 +1,3 @@
+(in-city ?loc - place ?city - city) : a place loc in in a city.
+(at ?obj - physobj ?loc - place) : a physical object obj is at a place loc. 
+(in ?pkg - package ?veh - vehicle) : a package pkg is in a vehicle veh.

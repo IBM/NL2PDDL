@@ -1,0 +1,4 @@
+(at-robby ?r - room) : the robot robby is at the room r.
+(at ?b - ball ?r - room) : the ball b is at the room r.
+(free ?g - gripper) : the gripper g is free.
+(carry ?o - ball ?g - gripper) : gripper g is carrying ball g.

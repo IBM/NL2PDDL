@@ -1,0 +1,14 @@
+(movie-rewound) : the movie has been rewound.
+(counter-at-two-hours) : the movie play time counter is at two hours.
+(counter-at-other-than-two-hours) : the movie play time counter is at a time other than two hours. 
+(counter-at-zero) : the movie play time counter is at zero.
+(have-chips) : the movie watcher has chips.
+(have-dip) : the movie watcher has dip.
+(have-pop) : the movie watcher has soda.
+(have-cheese) : the movie watcher has cheese.
+(have-crackers) : the movie watcher has crackers.
+(chips ?x - snack) : the snack x is chips.
+(dip ?x - snack) : the snack x is dip.
+(pop ?x - snack) : the snack x is pop.
+(cheese ?x - snack) : the snack x is cheese.
+(crackers ?x - snack) : the snack x are crackers.

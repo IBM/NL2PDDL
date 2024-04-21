@@ -1,0 +1,6 @@
+(at ?x - locatable ?y - place) : the locatable x is at some place.
+(on ?x - crate ?y - surface) : crate x is on a surface y.
+(in ?x - crate ?y - truck) : crate x is in truck y. 
+(lifting ?x - hoist ?y - crate) : hoist x is lifting crate y.
+(available ?x - hoist) : hoist x is available.
+(clear ?x - surface) : surface x is clear.

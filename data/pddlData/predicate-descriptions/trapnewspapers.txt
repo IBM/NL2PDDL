@@ -1,0 +1,7 @@
+(at ?loc - location) : the deliverer is at location loc. 
+(isHomeBase ?loc - location) : the location loc is the home base of the deliverer.
+(satisfied ?loc - location) : the location loc is satisfied.
+(wantsPaper ?loc - location) : the location loc wants a paper.
+(safe ?loc - location) : the location loc is safe.
+(unpacked ?p - paper) : the paper p is unpacked.
+(carrying ?p - paper) : the paper p is being carried.

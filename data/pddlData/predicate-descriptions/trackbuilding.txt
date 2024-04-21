@@ -1,0 +1,4 @@
+(agent-at ?loc - location) : the agent is at the location loc.
+(train-at ?loc - location) : the train is at the location loc.
+(has-track ?loc - location) : the location loc has track.
+(forward ?loc1 - location ?loc2 - location) : the location loc2 is ahead of location loc1.

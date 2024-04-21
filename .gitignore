@@ -1,0 +1,10 @@
+venv
+env
+virtualenv
+found_plans
+.venv
+.env
+__pycache__/
+*.sas
+pddl_cache.pkl
+plan_cache.pkl
