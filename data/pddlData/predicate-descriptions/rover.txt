@@ -1,0 +1,25 @@
+(at ?x - rover ?y - waypoint) : the rover x is at waypoint y.
+(at_lander ?x - lander ?y - waypoint) : the lander x is at waypoint y.
+(can_traverse ?r - rover ?x - waypoint ?y - waypoint) : the rover r can traverse from waypoint x to waypoint y.
+(equipped_for_soil_analysis ?r - rover) : the rover r is equipped for soil analysis.
+(equipped_for_rock_analysis ?r - rover) : the rover r is equipped for rock analysis.
+(equipped_for_imaging ?r - rover) : the rover r is equipped for imaging.
+(empty ?s - store) : store s is empty.
+(have_rock_analysis ?r - rover ?w - waypoint) : the rover r has rock analysis at waypoint w.
+(have_soil_analysis ?r - rover ?w - waypoint) : the rover r has soil analysis at waypoint w.
+(full ?s - store) : the store s is full.
+(calibrated ?c - camera ?r - rover) : the camera c is calibrated on rover r.
+(supports ?c - camera ?m - mode) : the camera c supports mode m.
+(available ?r - rover) : rover r is available.
+(visible ?w - waypoint ?p - waypoint) : waypoint w is visible from waypoint p.
+(have_image ?r - rover ?o - objective ?m - mode) : the rover r has an image of objective o in mode m.
+(communicated_soil_data ?w - waypoint) : soil data has been communicated from waypoint w.
+(communicated_rock_data ?w - waypoint) : rock data has been communicated from waypoint w.
+(communicated_image_data ?o - objective ?m - mode) : image data of objective o has been communicated in mode m.
+(at_soil_sample ?w - waypoint) : waypoint w is at a soil at a soil sample. 
+(at_rock_sample ?w - waypoint) : waypoint w is at a rock rock sample.
+(visible_from ?o - objective ?w - waypoint) : objective o is visible from waypoint w.
+(store_of ?s - store ?r - rover) : store s is a store of rover r.
+(calibration_target ?i - camera ?o - objective) : objective o is a calibration target for camera i.
+(on_board ?i - camera ?r - rover) : camera i is on board rover r.
+(channel_free ?l - lander) : lander l has a free channel. 

@@ -1,0 +1,5 @@
+(at ?loc - location) : the hikers are at the location loc.
+(isWater ?loc - location) : the location loc is water.
+(isHill ?loc - location) : the location loc is a hill.
+(adjacent ?loc1 - location ?loc2 - location) : location loc1 is adjacent to location loc2.
+(onTrail ?from - location ?to - location) : the hikers are on the trail from location from to location to.

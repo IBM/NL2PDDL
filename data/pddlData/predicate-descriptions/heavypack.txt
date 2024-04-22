@@ -1,0 +1,5 @@
+(heavier ?item1 - item ?item2 - item) : item1 is heavier than item2.
+(packed ?i - item) : item i is packed into the box.
+(unpacked ?i - item) : item i is unpacked from the box.
+(nothing-above ?i - item) : nothing is above item i in the box.
+(box-empty) : the box is empty.

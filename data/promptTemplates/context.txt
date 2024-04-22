@@ -1,0 +1,8 @@
+Allowed Predicates:
+{allowed}
+
+Input:
+{input}
+
+PDDL Action:
+{output}
