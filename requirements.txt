@@ -21,7 +21,7 @@ exceptiongroup==1.2.0
 executing==1.2.0
 fonttools==4.60.2
 frozenlist==1.4.1
-h11==0.14.0
+h11==0.16.0
 httpcore==0.17.3
 httpx==0.24.1
 ibm-generative-ai==0.2.4
