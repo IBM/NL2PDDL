@@ -49,7 +49,7 @@ pddl==0.4.10
 pep8==1.7.1
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==10.0.0
+Pillow==12.3.0
 platformdirs==3.10.0
 prompt-toolkit==3.0.39
 psutil==5.9.5
