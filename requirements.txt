@@ -75,7 +75,7 @@ tqdm==4.65.0
 traitlets==5.9.0
 typing_extensions==4.7.1
 tzdata==2023.3
-urllib3==1.26.16
+urllib3==2.8.0
 wcwidth==0.2.6
 propcache==0.5.4
 yarl==1.25.1
