@@ -8,7 +8,7 @@ asttokens==2.2.1
 async-timeout==4.0.2
 attrs==23.1.0
 backcall==0.2.0
-certifi==2024.7.4
+certifi==2026.10.19
 charset-normalizer==3.2.0
 click==8.1.6
 comm==0.1.4
@@ -49,7 +49,7 @@ pddl==0.4.10
 pep8==1.7.1
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==12.3.0
+Pillow==13.0.0
 platformdirs==3.10.0
 prompt-toolkit==3.0.39
 psutil==5.9.5
